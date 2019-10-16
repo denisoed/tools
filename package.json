@@ -1,0 +1,27 @@
+{
+  "name": "tools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava --verbose",
+    "docs:build": "documentation build src/** -f md -o docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/denisoed/tools.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/denisoed/tools/issues"
+  },
+  "homepage": "https://github.com/denisoed/tools#readme",
+  "dependencies": {
+    "documentation": "^12.1.2"
+  },
+  "devDependencies": {
+    "ava": "^2.4.0"
+  }
+}

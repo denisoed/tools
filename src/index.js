@@ -1,5 +1,16 @@
 module.exports = {
-  helloWorld() {
-    return 'Hello World';
-  },
+  /**
+   * 
+   * @param {array} array - Массив который нужно порезать на массивы с указанной длиной
+   * @param {number} size - Количество частей на которые порежется массив
+   * @returns {array} Вернет двумерный массив
+   * @example
+   * 
+   * tools.chunk([1, 2, 3, 5, 6, 7, 8], 2);
+   * // => [[1, 2], [3, 4], [5, 6], [7, 8]]
+   */
+  chunk(array, size) {
+    const result = array.slice(size);
+    return result;
+  }
 };
