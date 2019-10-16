@@ -9,8 +9,16 @@ module.exports = {
    * tools.chunk([1, 2, 3, 5, 6, 7, 8], 2);
    * // => [[1, 2], [3, 4], [5, 6], [7, 8]]
    */
-  chunk(array, size) {
-    const result = array.slice(size);
+  chunk(array, step) {
+    const result = [];
+    const loopCount = Math.ceil(array.length / step);
+    let count = 0;
+    let nextStep = step;
+    for (let i = 0; i < loopCount; i++) {
+      result.push(array.slice(count, nextStep));
+      count += step;
+      nextStep += step;
+    }
     return result;
   }
 };
