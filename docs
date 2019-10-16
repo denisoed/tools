@@ -5,14 +5,19 @@
 -   [chunk][1]
     -   [Parameters][2]
     -   [Examples][3]
+-   [compact][4]
+    -   [Parameters][5]
+    -   [Examples][6]
 
 ## chunk
 
+Создает двумерный массив с частями исходного массива в виде массивов
+
 ### Parameters
 
--   `array` **[array][4]** Массив который нужно порезать на массивы с указанной длиной
+-   `array` **[array][7]** Массив который нужно порезать на массивы с указанной длиной
 -   `step`  
--   `size` **[number][5]** Количество частей на которые порежется массив
+-   `size` **[number][8]** Количество частей на которые порежется массив
 
 ### Examples
 
@@ -21,7 +26,28 @@ tools.chunk([1, 2, 3, 5, 6, 7, 8], 2);
 // => [[1, 2], [3, 4], [5, 6], [7, 8]]
 ```
 
-Returns **[array][4]** Вернет двумерный массив
+Returns **[array][7]** Вернет двумерный массив
+
+## compact
+
+Удаляет из массива не валидные значения false, null, "", undefined, и NaN. Так же можно добавлять свои слова исключения
+
+### Parameters
+
+-   `array` **[array][7]** Массив который будет отфильтрован
+-   `exclude` **[array][7]** Массив который содержит кастомные слова исключения (optional, default `[]`)
+
+### Examples
+
+```javascript
+tools.compact([1, NaN, 2, 0, false, 3]);
+// => [1, 2, 3]
+
+tools.compact([1, NaN, 2, "!!!"], ["!!!"]);
+// => [1, 2]
+```
+
+Returns **any** Вернет массив без не валидных значений
 
 [1]: #chunk
 
@@ -29,6 +55,12 @@ Returns **[array][4]** Вернет двумерный массив
 
 [3]: #examples
 
-[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+[4]: #compact
 
-[5]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[5]: #parameters-1
+
+[6]: #examples-1
+
+[7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+[8]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
