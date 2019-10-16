@@ -36,11 +36,7 @@ module.exports = {
    */
   compact(array, exclude = []) {
     const notValid = [false, null, "", undefined, NaN];
-    if (exclude.length) {
-      exclude.forEach(element => {
-        notValid.push(element);
-      });
-    }
+    if (exclude.length) exclude.forEach(element => notValid.push(element));
     return array.filter(element => notValid.every(exclude => exclude !== element));
   }
 };
