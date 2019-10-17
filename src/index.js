@@ -11,13 +11,14 @@ module.exports = {
    */
   chunk(array, step) {
     const result = [];
-    const loopCount = Math.ceil(array.length / step);
+    const validStep = step === 0 ? 1 : Math.ceil(step);
+    const loopCount = Math.ceil(array.length / validStep);
     let count = 0;
-    let nextStep = step;
+    let nextStep = validStep;
     for (let i = 0; i < loopCount; i++) {
       result.push(array.slice(count, nextStep));
-      count += step;
-      nextStep += step;
+      count += validStep;
+      nextStep += validStep;
     }
     return result;
   },
