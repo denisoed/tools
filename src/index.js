@@ -26,7 +26,7 @@ module.exports = {
    * Удаляет из массива не валидные значения false, null, "", undefined, и NaN. Так же можно добавлять свои слова исключения
    * @param {array} array - Массив который будет отфильтрован
    * @param {array} exclude - Массив который содержит кастомные слова исключения
-   * @returns Вернет массив без не валидных значений
+   * @returns Вернет массив только валидных значений
    * @example
    * 
    * tools.compact([1, NaN, 2, 0, false, 3]);
@@ -39,5 +39,18 @@ module.exports = {
     const notValid = [false, null, "", undefined, NaN];
     if (exclude.length) exclude.forEach(element => notValid.push(element));
     return array.filter(element => notValid.every(exclude => exclude !== element));
+  },
+  /**
+   * Возвращает отфильтрованный массив в котором будут удалены значения которые передаются во втором аргументе 
+   * @param {array} array - Массив который будет отфильтрован
+   * @param {array} array - Массив со значениями которые буду удалены из начального массива 
+   * @returns Вернет отфильтрованный массив
+   * @example
+   * 
+   * tools.pullAll([1, 2, 3, 4], [2, 4]);
+   * // => [1, 3]
+   */
+  pullAll(array, values) {
+    return array.filter(element => values.every(value => value !== element));
   }
 };
