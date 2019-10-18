@@ -52,5 +52,15 @@ module.exports = {
    */
   pullAll(array, values) {
     return array.filter(element => values.every(value => value !== element));
+  },
+  /**
+   * Удаляет значения из массива, начиная от указанного индекса, слева на права или наоборот
+   * @param {array} array - Массив который будет отфильтрован
+   * @param {number} [n = 1] - Число, начиная от которого удалять элементы в массиве
+   * @param {boolean} [onRight = false] - Булевое значение, которое определяет с какой стороны обрезать массив
+   * @return Вернет массив без удаленными значений
+   */
+  drop(array, n = 1, onRight = false) {
+    return array.slice((onRight ? 0 : n), (onRight ? (array.length - n < 0 ? 0 : array.length - n) : array.length));
   }
 };
